@@ -41,12 +41,44 @@
             margin-top: 20px;
         }
 
+        .container::before,
+        .container::after {
+            content: "";
+            position: absolute;
+            inset: -120px;
+            background: radial-gradient(circle, rgba(255, 214, 231, 0.6), transparent 60%);
+            opacity: 0.7;
+            z-index: 0;
+            animation: sparkle 12s linear infinite;
+        }
+
+        .container::after {
+            animation-delay: -6s;
+        }
+
         h1 {
             font-family: 'Dancing Script', cursive;
             color: #ff4d7e;
             font-size: 3.8rem;
             margin-bottom: 20px;
             text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .love-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #7a1631;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 999px;
+            box-shadow: 0 8px 18px rgba(255, 105, 135, 0.25);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .intro-text {
@@ -55,6 +87,8 @@
             margin-bottom: 40px;
             line-height: 1.6;
             padding: 0 10px;
+            position: relative;
+            z-index: 2;
         }
 
         .question-box {
@@ -65,6 +99,8 @@
             margin: 30px auto;
             max-width: 700px;
             box-shadow: 0 10px 20px rgba(255, 105, 135, 0.4);
+            position: relative;
+            z-index: 2;
         }
 
         .question-text {
@@ -91,6 +127,8 @@
             font-weight: 600;
             box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
             min-width: 200px;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-yes {
@@ -110,6 +148,19 @@
             position: relative;
         }
 
+        .btn-custom::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-custom:hover::after {
+            opacity: 0.35;
+        }
+
         .btn-no:hover {
             background: linear-gradient(135deg, #d32f2f, #b71c1c);
             transform: scale(1.05);
@@ -123,6 +174,8 @@
             border-left: 8px solid #ff6b8b;
             display: none;
             animation: fadeIn 1s ease;
+            position: relative;
+            z-index: 2;
         }
 
         .response-text {
@@ -140,6 +193,8 @@
             text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
             display: none;
             animation: pulse 2s infinite;
+            position: relative;
+            z-index: 2;
         }
 
         .heart {
@@ -175,6 +230,8 @@
             padding: 20px;
             border-radius: 15px;
             border: 2px dashed #ffafbd;
+            position: relative;
+            z-index: 2;
         }
 
         .countdown {
@@ -200,6 +257,12 @@
             50% { transform: translateY(-15px); }
         }
 
+        @keyframes sparkle {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(3deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.8rem; }
             .question-text { font-size: 1.8rem; }
@@ -217,22 +280,23 @@
     <div class="hearts-container" id="heartsContainer"></div>
 
     <div class="container">
+        <div class="love-badge">✨ Certified Cutie Proposal ✨</div>
         <h1>But... I Love You ❤️</h1>
         
         <div class="intro-text">
-            <p>Are you tired of facing constant rejection from the one you adore? 😔</p>
-            <p>Do you find it hard to express your true feelings? Well, you're not alone!</p>
-            <p>This is your chance to make a move that she can't ignore... 💘</p>
+            <p>Feeling shy about telling your crush how special they are? 😍</p>
+            <p>Let this playful page do the sparkle-and-smiles part for you!</p>
+            <p>Get ready for giggles, heart flutters, and a very sweet surprise. 💘</p>
         </div>
 
         <div class="question-box">
             <div class="question-text">
-                Will you go out with me? <span class="heart">♥</span>
+                Will you go out with me? <span class="heart">♥</span> 🥰
             </div>
             
             <div class="buttons-container">
-                <button class="btn-custom btn-yes" id="yesBtn">YES! 💖</button>
-                <button class="btn-custom btn-no" id="noBtn">No 😢</button>
+                <button class="btn-custom btn-yes" id="yesBtn">YES! 💖🌈</button>
+                <button class="btn-custom btn-no" id="noBtn">No 😢🙈</button>
             </div>
         </div>
 
@@ -242,7 +306,7 @@
         </div>
 
         <div class="final-message" id="finalMessage">
-            I LOVE YOU FOREVER! 💕
+            I LOVE YOU FOREVER! 💕✨
         </div>
 
         <div class="instructions">
